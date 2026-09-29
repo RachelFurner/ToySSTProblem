@@ -113,11 +113,11 @@ Both notebooks include cells that download the required data (a zarr dataset and
 
 | Package | Version | Purpose |
 |---|---|---|
-| `anemoi-training` | 0.9.0 | Model training pipeline |
-| `anemoi-inference` | 0.9.0 | Checkpoint loading & forecasting |
-| `anemoi-models` | 0.12.0 | Graph-transformer architecture |
-| `anemoi-graphs` | 0.8.4 | Graph construction utilities |
-| `anemoi-datasets` | 0.5.35 | Zarr dataset access |
+| `anemoi-training` | 0.17.0 | Model training pipeline |
+| `anemoi-inference` | 0.12.0 | Checkpoint loading & forecasting |
+| `anemoi-models` | 0.19.0 | Graph-transformer architecture |
+| `anemoi-graphs` | 0.9.7 | Graph construction utilities |
+| `anemoi-datasets` | 0.5.44 | Zarr dataset access |
 | `torch` | 2.6.0 (CUDA 12.4) | Deep learning framework |
 
 ## License
