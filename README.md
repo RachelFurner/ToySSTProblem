@@ -19,30 +19,31 @@ Data comes from the ECMWF operational model.
 
 ## Environment Setup
 
-Both notebooks require **Python 3.11** and the packages listed in `requirements.txt`.
+Both notebooks require **Python 3.12** and the packages listed in `requirements.txt`.
 Curl is also required, this is pre-installed on most systems, and also installed within the Docker set up. However, if needed, it can be installed with the following:
 - Ubuntu: `sudo apt install curl`
 - macOS: `brew install curl`
 
-The notebook has the option to pip-install the requirements file within a cell (as long as python 3.11 is being used), providing a temporary working virtual environment with everything needed to run the notebook. Alternatively, you can set up a working environment with one of the below options.
+### Recommended — virtual environment activated within notebook
+The notebook has the option to pip-install the requirements file within a cell (as long as python 3.12 is being used), providing a temporary working virtual environment with everything needed to run the notebook. This is the recommended approach Alternatively, you can set up a working environment with one of the below options.
 
-### Option 1 — pip (virtual environment)
+### Alternative option 1 — pip (virtual environment)
 
 ```bash
-python3.11 -m venv toysst
+python3.12 -m venv toysst
 source toysst/bin/activate
 pip install --no-cache-dir -r requirements.txt
 ```
 
-### Option 2 — conda
+### Alternative option 2 — conda
 
 ```bash
-conda create -n toysst python=3.11 -y
+conda create -n toysst python=3.12 -y
 conda activate toysst
 pip install --no-cache-dir -r requirements.txt
 ```
 
-### Option 3 — Docker
+### Alternative option 3 — Docker
 
 ```bash
 docker build -t toysst .
@@ -102,6 +103,7 @@ Both notebooks include cells that download the required data (a zarr dataset and
 │   ├── graph/                #   Graph construction options
 │   ├── model/                #   Architecture definitions
 │   ├── system/               #   Hardware & I/O paths
+│   ├── task/                 #   Problem being addressed (forecasting, downscaling etc)
 │   └── training/             #   LR schedule, loss, scalers
 ├── inference_ToySST.yaml     # Inference run config
 ├── download_dataset.py       # Downloads dataset & pretrained outputs (used by Dockerfile build)
@@ -114,11 +116,11 @@ Both notebooks include cells that download the required data (a zarr dataset and
 | Package | Version | Purpose |
 |---|---|---|
 | `anemoi-training` | 0.17.0 | Model training pipeline |
-| `anemoi-inference` | 0.12.0 | Checkpoint loading & forecasting |
+| `anemoi-inference` | 0.11.1 | Checkpoint loading & forecasting |
 | `anemoi-models` | 0.19.0 | Graph-transformer architecture |
 | `anemoi-graphs` | 0.9.7 | Graph construction utilities |
-| `anemoi-datasets` | 0.5.44 | Zarr dataset access |
-| `torch` | 2.6.0 (CUDA 12.4) | Deep learning framework |
+| `anemoi-datasets` | 0.5.40 | Zarr dataset access |
+| `torch` | 2.9.0 (CUDA 12.4) | Deep learning framework |
 
 ## License
 
